@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/miConvert"
+        android:icon="@drawable/ic_convert"
+        android:title="Convert" />
+    <item
+        android:id="@+id/miRandom"
+        android:icon="@drawable/ic_random"
+        android:title="Random" />
+    <item
+        android:id="@+id/miForm"
+        android:icon="@drawable/ic_form"
+        android:title="Form" />
+</menu>

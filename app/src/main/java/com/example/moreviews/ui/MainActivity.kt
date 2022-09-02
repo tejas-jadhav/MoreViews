@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import com.example.moreviews.R
 import com.example.moreviews.databinding.ActivityMainBinding
 import com.example.moreviews.ui.favorites.FavoritesActivity
+import com.example.moreviews.ui.main.ConvertFragment
+import com.example.moreviews.ui.main.FormFragment
+import com.example.moreviews.ui.main.RandomFragment
 import com.example.moreviews.ui.settings.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +21,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val convertFragment = ConvertFragment()
+        val formFragment = FormFragment()
+        val randomFragment = RandomFragment()
+
+        setCurrentFragment(convertFragment)
+
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.miForm -> setCurrentFragment(formFragment)
+                R.id.miConvert -> setCurrentFragment(convertFragment)
+                R.id.miRandom -> setCurrentFragment(randomFragment)
+            }
+            true
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -31,6 +51,13 @@ class MainActivity : AppCompatActivity() {
             R.id.miExit -> finish()
         }
         return true
+    }
+
+    private fun setCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flMain, fragment)
+            commit()
+        }
     }
 
     private fun launchFavorites() {

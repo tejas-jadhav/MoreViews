@@ -53,7 +53,14 @@ class FavoritesActivity : AppCompatActivity(), FavoritesViewHolder.OnClickListen
         tempImageFile?.let {
             Intent(Intent.ACTION_SEND).apply {
                 type = "image/*"
-                putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this@FavoritesActivity, "$packageName.fileprovider", it))
+                putExtra(
+                    Intent.EXTRA_STREAM,
+                    FileProvider.getUriForFile(
+                        this@FavoritesActivity,
+                        "$packageName.fileprovider",
+                        it
+                    )
+                )
                 startActivity(Intent.createChooser(this, "Share via..."))
             }
         } ?: Toast.makeText(this, "Oops some error occurred", Toast.LENGTH_SHORT).show()
