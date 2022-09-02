@@ -61,6 +61,18 @@ sealed class SettingItem(val title: String, val description: String) {
                 ),
                 selected = 1
             ),
+            SelectItem(
+                "Why are settings not persisting ?",
+                "If you go back and open settings again, you will notice that the settings have been reset. The reason behind this is ...",
+                options = listOf(
+                    "You don't know how to code",
+                    "This are static values",
+                    "No database used",
+                    "Everytime you open the activity, the values are reset",
+                    "All of the above"
+                ),
+                selected = 0
+            )
         )
     }
 }
