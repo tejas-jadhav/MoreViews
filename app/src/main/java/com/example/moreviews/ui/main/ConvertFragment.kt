@@ -151,7 +151,7 @@ class ConvertFragment : Fragment(R.layout.fragment_convert) {
 
             input == "GB" && target == "Bit (b)" -> 8.0 * 1024 * 1024 * 1024
             input == "GB" && target == "Byte (B)" -> 1024.0 * 1024 * 1024
-            input == "GB" && target == "MB" -> 1024.0 * 1024
+            input == "GB" && target == "KB" -> 1024.0 * 1024
             input == "GB" && target == "MB" -> (1024.0)
             input == "GB" && target == "TB" -> 1.0 / (1024.0 )
 
